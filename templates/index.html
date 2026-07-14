@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+<h2>Tasks</h2>
+
+{% if tasks %}
+
+<ul>
+
+    {% for task in tasks %}
+
+    <li>
+
+        {% if task.completed %}
+            ✅
+        {% else %}
+            ⬜
+        {% endif %}
+
+        <strong>{{ task.title }}</strong>
+
+        {% if task.description %}
+            <br>
+            <small>{{ task.description }}</small>
+        {% endif %}
+
+    </li>
+
+    {% endfor %}
+
+</ul>
+
+{% else %}
+
+<p>No tasks available.</p>
+
+{% endif %}
+
+{% endblock %}
