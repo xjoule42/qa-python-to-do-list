@@ -1,44 +1,91 @@
 {% extends "base.html" %}
 
 {% block title %}
-Home
+To-Do List
 {% endblock %}
 
 {% block content %}
 
-<h2>Tasks</h2>
+<section>
 
-{% if tasks %}
+    <h2>Add New Task</h2>
 
-<ul>
+    <form action="{{ url_for('web.add_task') }}" method="POST">
 
-    {% for task in tasks %}
+        <div>
+            <label for="title">Title</label><br>
+            <input
+                type="text"
+                id="title"
+                name="title"
+                placeholder="Enter task title"
+                required
+            >
+        </div>
 
-    <li>
+        <br>
 
-        {% if task.completed %}
-            ✅
-        {% else %}
-            ⬜
-        {% endif %}
+        <div>
+            <label for="description">Description</label><br>
+            <textarea
+                id="description"
+                name="description"
+                rows="4"
+                placeholder="Enter task description (optional)"
+            ></textarea>
+        </div>
 
-        <strong>{{ task.title }}</strong>
+        <br>
 
-        {% if task.description %}
+        <button type="submit">
+            Add Task
+        </button>
+
+    </form>
+
+</section>
+
+<hr>
+
+<section>
+
+    <h2>Tasks</h2>
+
+    {% if tasks %}
+
+        <ul>
+
+        {% for task in tasks %}
+
+            <li>
+
+                {% if task.completed %}
+                    ✅
+                {% else %}
+                    ⬜
+                {% endif %}
+
+                <strong>{{ task.title }}</strong>
+
+                {% if task.description %}
+                    <br>
+                    <small>{{ task.description }}</small>
+                {% endif %}
+
+            </li>
+
             <br>
-            <small>{{ task.description }}</small>
-        {% endif %}
 
-    </li>
+        {% endfor %}
 
-    {% endfor %}
+        </ul>
 
-</ul>
+    {% else %}
 
-{% else %}
+        <p>No tasks available.</p>
 
-<p>No tasks available.</p>
+    {% endif %}
 
-{% endif %}
+</section>
 
 {% endblock %}

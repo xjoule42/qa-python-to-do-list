@@ -21,7 +21,7 @@ for task in loaded_tasks:
 
 # Register application routes
 app.register_blueprint(
-    create_web_blueprint(task_manager)
+    create_web_blueprint(task_manager, storage)
 )
 
 
