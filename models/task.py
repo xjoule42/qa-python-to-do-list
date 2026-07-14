@@ -20,6 +20,21 @@ class Task:
         """Mark the task as pending."""
         self.completed = False
 
+    @classmethod
+    def from_dict(cls, data: dict) -> "Task":
+        """Create a Task instance from a dictionary."""
+
+        task = cls(
+            title=data["title"],
+            description=data.get("description", "")
+        )
+
+        task.id = data["id"]
+        task.completed = data["completed"]
+        task.created_at = data["created_at"]
+
+        return task
+
     def to_dict(self) -> dict:
         """Convert the task into a dictionary."""
         return {
