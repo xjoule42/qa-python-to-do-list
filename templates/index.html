@@ -57,24 +57,56 @@ To-Do List
 
         {% for task in tasks %}
 
-            <li>
+<li>
 
-                {% if task.completed %}
-                    ✅
-                {% else %}
-                    ⬜
-                {% endif %}
+    {% if task.completed %}
+        ✅
+    {% else %}
+        ⬜
+    {% endif %}
 
-                <strong>{{ task.title }}</strong>
+    <strong>{{ task.title }}</strong>
 
-                {% if task.description %}
-                    <br>
-                    <small>{{ task.description }}</small>
-                {% endif %}
+    {% if task.description %}
+        <br>
+        <small>{{ task.description }}</small>
+    {% endif %}
 
-            </li>
+    <br><br>
 
-            <br>
+    <form
+        action="{{ url_for('web.complete_task', task_id=task.id) }}"
+        method="POST"
+        style="display:inline;"
+    >
+
+        <button type="submit">
+
+            {% if task.completed %}
+                Undo
+            {% else %}
+                Complete
+            {% endif %}
+
+        </button>
+
+    </form>
+
+    <form
+        action="{{ url_for('web.delete_task', task_id=task.id) }}"
+        method="POST"
+        style="display:inline;"
+    >
+
+        <button type="submit">
+            Delete
+        </button>
+
+    </form>
+
+</li>
+
+<br>
 
         {% endfor %}
 

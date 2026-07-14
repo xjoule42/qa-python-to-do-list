@@ -15,12 +15,14 @@ def create_web_blueprint(
     task_manager: TaskManager,
     storage: Storage,
 ) -> Blueprint:
+    """Create and configure the application's web routes."""
 
     web = Blueprint("web", __name__)
 
     @web.route("/")
     def home():
         """Display all tasks."""
+
         tasks = task_manager.get_all_tasks()
 
         return render_template(
@@ -51,4 +53,37 @@ def create_web_blueprint(
 
         return redirect(url_for("web.home"))
 
+    @web.route("/complete/<task_id>", methods=["POST"])
+    def complete_task(task_id: str):
+        """Toggle task completion."""
+
+        task = task_manager.get_task_by_id(task_id)
+
+        if task is None:
+            return redirect(url_for("web.home"))
+
+        if task.completed:
+            task_manager.undo_task(task_id)
+        else:
+            task_manager.complete_task(task_id)
+
+        storage.save_tasks(
+            task_manager.get_all_tasks()
+        )
+
+        return redirect(url_for("web.home"))
+
+    @web.route("/delete/<task_id>", methods=["POST"])
+    def delete_task(task_id: str):
+        """Delete a task."""
+
+        task_manager.delete_task(task_id)
+
+        storage.save_tasks(
+            task_manager.get_all_tasks()
+        )
+
+        return redirect(url_for("web.home"))
+
     return web
+    
