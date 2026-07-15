@@ -1,253 +1,320 @@
 # 📝 QA Python To-Do List
 
-A personal To-Do List web application built with Flask following clean architecture principles.
+A personal To-Do List web application built with **Flask** following clean architecture principles.
 
-This project was created as part of my Python backend learning path to practice object-oriented programming, CRUD operations, Flask routing, persistent storage, Git workflow, and clean project organization.
+This project was developed as part of my Python backend learning journey to strengthen my understanding of object-oriented programming, CRUD operations, Flask application development, persistent storage, Git workflow, and software architecture.
 
-## 📸 Screenshots
+Rather than focusing only on building a functional application, the goal was to create a maintainable and extensible codebase using a layered architecture and incremental development approach.
+
+---
+
+# 📸 Screenshots
 
 ### Home
 
 ![Home](docs/images/home.png)
 
----
-
 ### Creating a Task
 
 ![Create Task](docs/images/create-task.png)
-
----
 
 ### Completed Tasks
 
 ![Completed Task](docs/images/completed-task.png)
 
----
-
 ### Mobile View
 
 ![Mobile](docs/images/mobile.png)
 
+---
 
-## ✨ Features
+# ✨ Features
 
-- Create new tasks
-- Mark tasks as completed
-- Restore completed tasks
-- Delete tasks
-- Persistent JSON storage
-- Responsive layout
-- Clean and modern UI
-- Task counter
+* Create new tasks
+* Mark tasks as completed
+* Restore completed tasks
+* Delete tasks
+* Persistent JSON storage
+* Responsive layout
+* Clean and modern UI
+* Task counter
 
-## 🛠 Tech Stack
+---
 
-- Python 3
-- Flask
-- HTML5
-- CSS3
-- Jinja2
-- JSON
-- Lucide Icons
+# 🛠 Tech Stack
 
+* Python 3
+* Flask
+* HTML5
+* CSS3
+* Jinja2
+* JSON
+* Lucide Icons
+
+---
+
+# 🏗️ Architecture
+
+The application is organized into independent layers, where each module has a single responsibility.
+
+* **Models**
+
+  * Define the domain entities.
+  * Contain business objects such as `Task` and `TaskManager`.
+
+* **Services**
+
+  * Handle infrastructure concerns.
+  * Responsible for loading and saving data using JSON storage.
+
+* **Routes**
+
+  * Manage HTTP requests and user interactions.
+  * Connect the frontend with the application logic.
+
+* **Templates**
+
+  * Render HTML pages using Jinja2.
+  * Keep presentation separated from business logic.
+
+* **Static Assets**
+
+  * CSS styling.
+  * JavaScript behavior.
+  * Icons and frontend resources.
+
+This separation makes the project easier to maintain, test, and extend.
+
+---
+
+# 📁 Project Structure
+
+```text
 qa-python-to-do-list/
-
 │
-
 ├── models/
-
-│ ├── task.py
-
-│ └── task_manager.py
-
+│   ├── task.py
+│   └── task_manager.py
 │
-
 ├── routes/
-
-│ └── web.py
-
+│   └── web.py
 │
-
 ├── services/
-
-│ └── storage.py
-
+│   └── storage.py
 │
-
 ├── templates/
-
-│ ├── base.html
-
-│ └── index.html
-
+│   ├── base.html
+│   └── index.html
 │
-
 ├── static/
-
-│ ├── css/
-
-│ └── js/
-
+│   ├── css/
+│   └── js/
 │
-
+├── docs/
+│   └── images/
+│
 ├── data/
-
-│ └── tasks.json
-
+│   └── tasks.json
 │
-
 ├── app.py
+├── requirements.txt
+└── README.md
+```
 
-└── requirements.txt
+---
 
+# 🚀 Getting Started
 
-## 🚀 Getting Started
-
-### Clone repository
+## Clone the repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/your-username/qa-python-to-do-list.git
+cd qa-python-to-do-list
+```
 
-### Install dependencies
+## Install dependencies
+
 ```bash
 pip install -r requirements.txt
+```
 
-### Run
+## Run the application
+
 ```bash
 python app.py
+```
 
-Application will be available at: 
+The application will be available at:
+
+```text
 http://127.0.0.1:5000
-
-
----
-
-
-```markdown
-## 📌 Roadmap
-
-### Completed
-
-- [x] Task model
-- [x] Task manager
-- [x] JSON storage
-- [x] Flask routes
-- [x] CRUD operations
-- [x] Responsive UI
-- [x] Task counter
-
-### Backlog
-
-- [ ] SQLite support
-- [ ] Docker
-- [ ] REST API
-- [ ] Search tasks
-- [ ] Task filters
-- [ ] Categories
-- [ ] Due dates
-- [ ] Dark mode
-- [ ] AJAX (Fetch API)
-- [ ] Toast notifications
-- [ ] Unit tests
-- [ ] GitHub Actions
-
-## 📚 What I Learned
-
-During this project I practiced:
-
-- Object-Oriented Programming
-- Flask application structure
-- CRUD operations
-- JSON persistence
-- Clean Architecture
-- Git workflow
-- Responsive CSS
-- Jinja2 templates
-
-## 👨‍💻 Author
-
-Julio Soto
-
+```
 
 ---
 
-## 🛤️ Development Journey
+# 📌 Roadmap
 
-This project was intentionally developed in small, incremental phases instead of building everything at once. The goal was not only to create a functional application, but also to practice software architecture, clean code, and Git workflow following a structured development process.
+## ✅ Completed
 
-### Phase 1 – Project Setup
+* [x] Task model
+* [x] Task manager
+* [x] JSON storage
+* [x] Flask routes
+* [x] CRUD operations
+* [x] Responsive UI
+* [x] Task counter
 
-- Designed the project architecture
-- Created the initial folder structure
-- Configured the Python virtual environment
-- Initialized the Git repository
+## 🚧 Backlog
 
----
-
-### Phase 2 – Domain Model
-
-- Implemented the `Task` class
-- Applied Object-Oriented Programming principles
-- Added serialization (`to_dict` / `from_dict`)
-- Tested the model independently
-
----
-
-### Phase 3 – Business Logic
-
-- Implemented the `TaskManager`
-- Added CRUD operations
-- Created temporary validation scripts
-- Improved code organization
+* [ ] SQLite support
+* [ ] Docker
+* [ ] REST API
+* [ ] Search tasks
+* [ ] Task filters
+* [ ] Categories
+* [ ] Due dates
+* [ ] Dark mode
+* [ ] AJAX (Fetch API)
+* [ ] Toast notifications
+* [ ] Unit tests
+* [ ] GitHub Actions
 
 ---
 
-### Phase 4 – Persistence Layer
+# 📚 What I Learned
 
-- Designed the `Storage` service
-- Implemented JSON persistence
-- Loaded and saved tasks automatically
-- Prepared the project for future storage providers
+Throughout this project I practiced and reinforced:
 
----
-
-### Phase 5 – Flask Application
-
-- Created the application entry point
-- Added Blueprints
-- Connected backend services
-- Implemented HTML rendering with Jinja2
-
----
-
-### Phase 6 – CRUD Features
-
-- Created task creation form
-- Added task completion toggle
-- Implemented task deletion
-- Connected all actions with persistent storage
+* Object-Oriented Programming (OOP)
+* Flask application development
+* CRUD design and implementation
+* JSON persistence
+* Layered architecture
+* Blueprint organization
+* Jinja2 templating
+* Responsive web design
+* Git branching and commit workflow
+* Incremental software development
 
 ---
 
-### Phase 7 – UI / UX
+# 📐 Design Principles
 
-- Redesigned the interface
-- Added responsive layout
-- Improved spacing and typography
-- Integrated Lucide icons
-- Added task statistics
-- Enhanced user experience
+The project was intentionally developed following several software engineering principles:
+
+* **Single Responsibility Principle (SRP)**
+
+  * Each module is responsible for one specific concern.
+
+* **Separation of Concerns**
+
+  * Business logic, persistence, routing, and presentation are isolated.
+
+* **Layered Architecture**
+
+  * Clear boundaries between domain, services, routes, and UI.
+
+* **Incremental Development**
+
+  * Features were implemented in small, testable iterations.
+
+* **Maintainability**
+
+  * The structure is designed to simplify future improvements.
+
+* **Extensibility**
+
+  * New storage providers, APIs, or frontend features can be added with minimal changes.
+
+* **Code Reusability**
+
+  * Components are organized to encourage reuse and reduce duplication.
 
 ---
 
-### Phase 8 – Documentation
+# 🛤️ Development Journey
 
-- Created a complete README
-- Added screenshots
-- Documented the architecture
-- Defined the project roadmap
-- Organized future improvements into a backlog
+This project was intentionally built in multiple phases rather than implementing everything at once. Each phase focused on one architectural layer before moving to the next.
+
+## Phase 1 — Project Setup
+
+* Designed the folder structure
+* Configured the Python virtual environment
+* Initialized Git
+* Planned the architecture
+
+## Phase 2 — Domain Model
+
+* Implemented the `Task` class
+* Added serialization methods
+* Tested the domain model independently
+
+## Phase 3 — Business Logic
+
+* Implemented the `TaskManager`
+* Added CRUD operations
+* Validated application logic
+
+## Phase 4 — Persistence Layer
+
+* Designed the `Storage` service
+* Added automatic JSON loading and saving
+* Decoupled persistence from business logic
+
+## Phase 5 — Flask Application
+
+* Configured the Flask application
+* Added Blueprints
+* Connected all layers
+
+## Phase 6 — CRUD Features
+
+* Task creation
+* Task completion
+* Task restoration
+* Task deletion
+
+## Phase 7 — UI / UX
+
+* Responsive layout
+* Improved typography
+* Better spacing
+* Lucide icons
+* Task statistics
+
+## Phase 8 — Documentation
+
+* Complete README
+* Screenshots
+* Architecture overview
+* Roadmap
+* Future improvements
+
+This phased approach allowed the application to grow while keeping the codebase organized, maintainable, and ready for future enhancements.
 
 ---
 
-This phased approach allowed the project to evolve in a controlled manner while keeping the codebase clean, maintainable, and easy to extend.
+# 🚀 Future Improvements
+
+Potential future enhancements include:
+
+* Replace JSON with SQLite
+* Add a REST API
+* Dockerize the application
+* Implement authentication
+* Add search and filtering
+* Create categories and priorities
+* Add due dates and reminders
+* Dark mode
+* AJAX interactions with Fetch API
+* Toast notifications
+* Automated testing with Pytest
+* Continuous Integration using GitHub Actions
+
+---
+
+# 👨‍💻 Author
+
+**Julio Soto**
+
+Senior QA Engineer | Python Automation | Backend Development | Test Automation
