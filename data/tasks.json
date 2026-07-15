@@ -33,5 +33,12 @@
         "description": "print, if statements, lists, tuples, dictionaries, loops and functions",
         "completed": true,
         "created_at": "2026-07-15T12:30:34.212425"
+    },
+    {
+        "id": "797a74b1-7d94-4c3d-9747-58d7366b33c5",
+        "title": "Feed the dog",
+        "description": "Go feed the dog at 3:00 PM",
+        "completed": false,
+        "created_at": "2026-07-15T13:36:29.682833"
     }
 ]
