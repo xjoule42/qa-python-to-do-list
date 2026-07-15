@@ -25,9 +25,19 @@ def create_web_blueprint(
 
         tasks = task_manager.get_all_tasks()
 
+        completed_tasks = sum(
+        task.completed
+        for task in tasks
+        )
+
         return render_template(
+
             "index.html",
+
             tasks=tasks,
+
+            completed_tasks=completed_tasks
+
         )
 
     @web.route("/add", methods=["POST"])

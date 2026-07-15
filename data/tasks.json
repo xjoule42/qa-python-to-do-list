@@ -3,14 +3,14 @@
         "id": "f52e8995-5340-4e8d-b61e-bcdd72650181",
         "title": "Learn Flask",
         "description": "Study Flask routing",
-        "completed": true,
+        "completed": false,
         "created_at": "2026-07-14T14:44:53.925647"
     },
     {
         "id": "c538f2e0-b4c0-4fb6-a01b-f3d4928b0181",
         "title": "Write Tests",
         "description": "Validate Storage class",
-        "completed": true,
+        "completed": false,
         "created_at": "2026-07-14T14:44:53.925679"
     },
     {
@@ -24,7 +24,14 @@
         "id": "a07fa60d-3ceb-435a-b8a2-f1a637e93ef3",
         "title": "Escuchar m\u00fasica",
         "description": "Listen to heavy metal",
-        "completed": false,
+        "completed": true,
         "created_at": "2026-07-14T15:54:19.261365"
+    },
+    {
+        "id": "9865b02c-d352-41ab-b790-fe800c1b0035",
+        "title": "Learn Python basics",
+        "description": "print, if statements, lists, tuples, dictionaries, loops and functions",
+        "completed": true,
+        "created_at": "2026-07-15T12:30:34.212425"
     }
 ]

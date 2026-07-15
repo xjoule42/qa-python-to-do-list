@@ -6,115 +6,161 @@ To-Do List
 
 {% block content %}
 
-<section>
+<section class="card task-form-card">
 
     <h2>Add New Task</h2>
 
-    <form action="{{ url_for('web.add_task') }}" method="POST">
+    <form
+        class="add-task-form"
+        action="{{ url_for('web.add_task') }}"
+        method="POST">
 
-        <div>
-            <label for="title">Title</label><br>
+        <div class="form-group">
+
+            <label for="title">Title</label>
+
             <input
+                class="form-control"
                 type="text"
                 id="title"
                 name="title"
                 placeholder="Enter task title"
-                required
-            >
+                required>
+
         </div>
 
-        <br>
+        <div class="form-group">
 
-        <div>
-            <label for="description">Description</label><br>
+            <label for="description">Description</label>
+
             <textarea
+                class="form-control"
                 id="description"
                 name="description"
                 rows="4"
-                placeholder="Enter task description (optional)"
-            ></textarea>
+                placeholder="Enter task description (optional)"></textarea>
+
         </div>
 
-        <br>
+        <button
+            class="btn btn-primary"
+            type="submit">
 
-        <button type="submit">
             Add Task
+
         </button>
 
     </form>
 
 </section>
 
-<hr>
 
-<section>
+<section class="tasks-section">
 
-    <h2>Tasks</h2>
+<h2 class="section-title">
+
+    {{ tasks|length }}
+
+    Tasks
+
+    <span class="task-counter">
+
+        •
+
+        {{ completed_tasks }}
+
+        Completed
+
+    </span>
+
+</h2>
 
     {% if tasks %}
 
-        <ul>
+    <div class="task-list">
 
-        {% for task in tasks %}
+{% for task in tasks %}
 
-<li>
+<article class="card task-card">
 
-    {% if task.completed %}
-        ✅
-    {% else %}
-        ⬜
-    {% endif %}
+    <div class="task-main">
 
-    <strong>{{ task.title }}</strong>
+        <form
+            class="task-toggle-form"
+            action="{{ url_for('web.complete_task', task_id=task.id) }}"
+            method="POST">
 
-    {% if task.description %}
-        <br>
-        <small>{{ task.description }}</small>
-    {% endif %}
+            <button
+                class="task-toggle {% if task.completed %}completed{% endif %}"
+                type="submit"
+                title="Toggle task status">
 
-    <br><br>
+                {% if task.completed %}
+                    <i data-lucide="circle-check-big"></i>
+                {% else %}
+                    <i data-lucide="circle"></i>
+                {% endif %}
 
-    <form
-        action="{{ url_for('web.complete_task', task_id=task.id) }}"
-        method="POST"
-        style="display:inline;"
-    >
+            </button>
 
-        <button type="submit">
+        </form>
 
-            {% if task.completed %}
-                Undo
-            {% else %}
-                Complete
+
+        <div class="task-content">
+
+            <h3 class="task-title {% if task.completed %}completed{% endif %}">
+                {{ task.title }}
+            </h3>
+
+            {% if task.description %}
+
+            <p class="task-description {% if task.completed %}completed{% endif %}">
+                {{ task.description }}
+            </p>
+
             {% endif %}
 
-        </button>
+        </div>
 
-    </form>
+    </div>
 
-    <form
-        action="{{ url_for('web.delete_task', task_id=task.id) }}"
-        method="POST"
-        style="display:inline;"
-    >
 
-        <button type="submit">
-            Delete
-        </button>
+    <div class="task-actions">
 
-    </form>
+        <form
+            action="{{ url_for('web.delete_task', task_id=task.id) }}"
+            method="POST">
 
-</li>
+            <button
+                class="icon-button delete-button"
+                type="submit"
+                title="Delete task">
 
-<br>
+                <i data-lucide="trash-2"></i>
 
-        {% endfor %}
+            </button>
 
-        </ul>
+        </form>
+
+    </div>
+
+</article>
+
+{% endfor %}
+
+    </div>
 
     {% else %}
 
-        <p>No tasks available.</p>
+    <div class="empty-state">
+
+        <h3>No tasks yet</h3>
+
+        <p>
+            Add your first task using the form above.
+        </p>
+
+    </div>
 
     {% endif %}
 
