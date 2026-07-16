@@ -17,3 +17,5 @@ requests==2.32.3
 typing_extensions==4.14.0
 urllib3==2.4.0
 Werkzeug==3.1.8
+pytest
+pytest-cov
