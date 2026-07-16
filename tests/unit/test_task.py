@@ -22,23 +22,6 @@ from models.task import Task
 from datetime import datetime
 
 # ========================================================================
-# FIXTURES
-# ========================================================================
-
-@pytest.fixture
-def sample_task():
-    """
-    Returns a default task instance.
-
-    This fixture is reused accross multiple tests to avoid
-    duplicating object creation.    
-    """
-    return Task(
-        title="Learn Pytest",
-        description = "Write unit tests"
-    )
-
-# ========================================================================
 # TESTS
 # ========================================================================
 
