@@ -3,6 +3,7 @@ import pytest
 from models.task import Task
 from models.task_manager import TaskManager
 from services.storage import Storage
+from app import create_app
 
 # ========================================================================
 # FIXTURES
@@ -32,3 +33,15 @@ def storage(tmp_path):
     """
 
     return Storage(tmp_path / "tasks.json")
+
+@pytest.fixture
+def client():
+    """
+    Returns a Flask test client.
+    """
+
+    app = create_app()
+    app.config["TESTING"] = True
+
+    with app.test_client() as client:
+        yield client

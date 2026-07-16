@@ -40,5 +40,12 @@
         "description": "Go feed the dog at 3:00 PM",
         "completed": false,
         "created_at": "2026-07-15T13:36:29.682833"
+    },
+    {
+        "id": "15a881b6-fef4-4171-abbb-6aad89d57d5c",
+        "title": "Learn Flask",
+        "description": "Integration test",
+        "completed": false,
+        "created_at": "2026-07-16T17:50:11.130994"
     }
 ]
