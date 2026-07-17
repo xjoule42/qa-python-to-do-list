@@ -25,19 +25,10 @@ def create_web_blueprint(
 
         tasks = task_manager.get_all_tasks()
 
-        completed_tasks = sum(
-        task.completed
-        for task in tasks
-        )
+        completed_tasks = sum(task.completed for task in tasks)
 
         return render_template(
-
-            "index.html",
-
-            tasks=tasks,
-
-            completed_tasks=completed_tasks
-
+            "index.html", tasks=tasks, completed_tasks=completed_tasks
         )
 
     @web.route("/add", methods=["POST"])
@@ -57,9 +48,7 @@ def create_web_blueprint(
 
         task_manager.add_task(task)
 
-        storage.save_tasks(
-            task_manager.get_all_tasks()
-        )
+        storage.save_tasks(task_manager.get_all_tasks())
 
         return redirect(url_for("web.home"))
 
@@ -77,9 +66,7 @@ def create_web_blueprint(
         else:
             task_manager.complete_task(task_id)
 
-        storage.save_tasks(
-            task_manager.get_all_tasks()
-        )
+        storage.save_tasks(task_manager.get_all_tasks())
 
         return redirect(url_for("web.home"))
 
@@ -89,11 +76,8 @@ def create_web_blueprint(
 
         task_manager.delete_task(task_id)
 
-        storage.save_tasks(
-            task_manager.get_all_tasks()
-        )
+        storage.save_tasks(task_manager.get_all_tasks())
 
         return redirect(url_for("web.home"))
 
     return web
-    

@@ -9,22 +9,22 @@ from app import create_app
 # FIXTURES
 # ========================================================================
 
+
 @pytest.fixture
 def sample_task():
     """
     Returns a default task instance.
 
     This fixture is reused accross multiple tests to avoid
-    duplicating object creation.    
+    duplicating object creation.
     """
-    return Task(
-        title="Learn Pytest",
-        description = "Write unit tests"
-    )
+    return Task(title="Learn Pytest", description="Write unit tests")
+
 
 @pytest.fixture
 def task_manager():
     return TaskManager()
+
 
 @pytest.fixture
 def storage(tmp_path):
@@ -33,6 +33,7 @@ def storage(tmp_path):
     """
 
     return Storage(tmp_path / "tasks.json")
+
 
 @pytest.fixture
 def client():

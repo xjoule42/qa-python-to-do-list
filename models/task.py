@@ -24,10 +24,7 @@ class Task:
     def from_dict(cls, data: dict) -> "Task":
         """Create a Task instance from a dictionary."""
 
-        task = cls(
-            title=data["title"],
-            description=data.get("description", "")
-        )
+        task = cls(title=data["title"], description=data.get("description", ""))
 
         task.id = data["id"]
         task.completed = data["completed"]
@@ -47,7 +44,4 @@ class Task:
 
     def __str__(self) -> str:
         status = "✓" if self.completed else "✗"
-        return (
-            f"[{status}] {self.title} "
-            f"(Created: {self.created_at})"
-        )
+        return f"[{status}] {self.title} " f"(Created: {self.created_at})"

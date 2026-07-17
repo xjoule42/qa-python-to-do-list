@@ -16,6 +16,7 @@ Author:
     Julio Soto
 """
 
+
 class TestWorkflow:
     """Functional tests for the complete application workflow."""
 

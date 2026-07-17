@@ -17,7 +17,7 @@ Author:
 """
 
 from models.task import Task
-from models.task_manager import TaskManager
+
 
 class TestTaskManager:
     """Unit tests for the TaskManager class."""
@@ -31,7 +31,7 @@ class TestTaskManager:
 
         assert len(task_manager.get_all_tasks()) == 1
         assert task_manager.get_all_tasks()[0] == sample_task
-    
+
     def test_get_all_tasks(self, task_manager):
         """
         Verify that all stored tasks are returned.
@@ -48,7 +48,7 @@ class TestTaskManager:
         assert len(tasks) == 2
         assert task_1 in tasks
         assert task_2 in tasks
-    
+
     def test_get_task_by_id(self, task_manager, sample_task):
         """
         Verify that an existing task can be retrieved by ID.
@@ -59,7 +59,7 @@ class TestTaskManager:
         task = task_manager.get_task_by_id(sample_task.id)
 
         assert task == sample_task
-    
+
     def test_get_task_by_invalid_id(self, task_manager):
         """
         Verify that searching for a nonexistent task returns None.
@@ -68,7 +68,7 @@ class TestTaskManager:
         task = task_manager.get_task_by_id("invalid-id")
 
         assert task is None
-    
+
     def test_complete_task(self, task_manager, sample_task):
         """
         Verify that a task can be marked as completed.
@@ -106,7 +106,7 @@ class TestTaskManager:
 
         assert result is True
         assert len(task_manager.get_all_task()) == 0
-    
+
     def test_delete_nonexistent_task(self, task_manager):
         """
         Verify that deleting a nonexistent task returns False.

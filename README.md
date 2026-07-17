@@ -152,6 +152,89 @@ http://127.0.0.1:5000
 
 ---
 
+## Testing
+
+This project includes automated tests to ensure application reliability and maintainability.
+
+### Test Stack
+
+- **Pytest** – Test framework
+- **Pytest-Cov** – Code coverage reporting
+- **Black** – Code formatter
+- **Flake8** – Code quality and style checker
+
+---
+
+### Run all tests
+
+```bash
+pytest
+```
+
+---
+
+### Run tests with coverage
+
+```bash
+pytest --cov=. --cov-report=term-missing
+```
+
+---
+
+### Generate HTML coverage report
+
+```bash
+pytest --cov=. --cov-report=html
+```
+
+The HTML report will be generated inside the `htmlcov/` directory.
+
+Open:
+
+```text
+htmlcov/index.html
+```
+
+to view the detailed coverage report.
+
+---
+
+### Format code
+
+```bash
+black .
+```
+
+---
+
+### Check code quality
+
+```bash
+flake8 app.py models routes services tests
+```
+
+---
+
+### Current Coverage
+
+| Metric | Status |
+|---------|:------:|
+| Unit Tests | ✅ |
+| Integration Tests | ✅ |
+| Functional Tests | ✅ |
+| Code Coverage | **95%** |
+
+A total of **25 automated tests** cover the application's core functionality.
+
+## Continuous Integration
+
+This project uses **GitHub Actions** to automatically:
+
+- Run Black
+- Run Flake8
+- Execute all Pytest test suites
+- Validate every push and pull request
+
 # 📌 Roadmap
 
 ## ✅ Completed

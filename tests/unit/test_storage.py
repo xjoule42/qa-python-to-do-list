@@ -15,8 +15,6 @@ Author:
     Julio Soto
 """
 
-from models.task import Task
-
 
 class TestStorage:
     """Unit tests for the Storage service."""

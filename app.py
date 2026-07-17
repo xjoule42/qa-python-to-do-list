@@ -16,9 +16,7 @@ def create_app():
     for task in loaded_tasks:
         task_manager.add_task(task)
 
-    app.register_blueprint(
-        create_web_blueprint(task_manager, storage)
-    )
+    app.register_blueprint(create_web_blueprint(task_manager, storage))
 
     return app
 

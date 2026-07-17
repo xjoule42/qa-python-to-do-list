@@ -17,13 +17,12 @@ Author:
     Julio Soto
 """
 
-import pytest
 from models.task import Task
-from datetime import datetime
 
 # ========================================================================
 # TESTS
 # ========================================================================
+
 
 class TestTask:
     """Unit tests for the Task model."""
@@ -90,7 +89,7 @@ class TestTask:
             "title": "Learn Flask",
             "description": "Study Blueprints",
             "completed": True,
-            "created_at": "2026-07-15T12:00:00"
+            "created_at": "2026-07-15T12:00:00",
         }
 
         task = Task.from_dict(data)
@@ -106,31 +105,22 @@ class TestTask:
         Verify the string representation of a task.
         """
 
-        expected = (
-            f"[✗] {sample_task.title} "
-            f"(Created: {sample_task.created_at})"
-        )
+        expected = f"[✗] {sample_task.title} " f"(Created: {sample_task.created_at})"
 
         assert str(sample_task) == expected
-    
+
     def test_tasks_generate_unique_ids(self):
         """
         Verify that each Task instance generates
         a unique identifier.
         """
 
-        task_1 = Task(
-            title ="Task One",
-            description="First Task"
-        )
+        task_1 = Task(title="Task One", description="First Task")
 
-        task_2 = Task(
-            title = "Task Two",
-            description = "Second Task"
-        )
+        task_2 = Task(title="Task Two", description="Second Task")
 
         assert task_1.id != task_2.id
-    
+
     def test_created_at_is_valid_iso_format(self, sample_task):
         """Verify that created_at is automatically generated
         and stored using a valid ISO 8601 datetime format.

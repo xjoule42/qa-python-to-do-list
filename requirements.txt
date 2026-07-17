@@ -19,3 +19,5 @@ urllib3==2.4.0
 Werkzeug==3.1.8
 pytest
 pytest-cov
+black
+flake8
