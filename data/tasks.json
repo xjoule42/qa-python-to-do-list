@@ -47,5 +47,12 @@
         "description": "Integration test",
         "completed": false,
         "created_at": "2026-07-16T17:50:11.130994"
+    },
+    {
+        "id": "b87da970-c403-4470-8046-155e51949fcd",
+        "title": "Functional Test",
+        "description": "Testing complete workflow",
+        "completed": false,
+        "created_at": "2026-07-17T11:13:03.584562"
     }
 ]
