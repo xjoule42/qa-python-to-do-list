@@ -401,6 +401,21 @@ Potential future enhancements include:
 
 ---
 
+## 🎯 Key Learnings
+
+During this project I practiced:
+
+- Object-Oriented Programming in Python
+- Flask application structure
+- Separation of concerns
+- JSON persistence
+- Unit, integration and functional testing
+- Continuous Integration with GitHub Actions
+- Code formatting with Black
+- Static analysis with Flake8
+- Test coverage with Pytest-Cov
+- Git workflow and GitHub Releases
+
 # 👨‍💻 Author
 
 **Julio Soto**
