@@ -1,5 +1,10 @@
 # 📝 QA Python To-Do List
 
+[![Python CI](https://github.com/xjoule42/qa-python-to-do-list/actions/workflows/ci.yml/badge.svg)](https://github.com/xjoule42/qa-python-to-do-list/actions/workflows/ci.yml)
+![Python](https://img.shields.io/badge/Python-3.13-blue)
+![Flask](https://img.shields.io/badge/Flask-3.x-black)
+
+
 A personal To-Do List web application built with **Flask** following clean architecture principles.
 
 This project was developed as part of my Python backend learning journey to strengthen my understanding of object-oriented programming, CRUD operations, Flask application development, persistent storage, Git workflow, and software architecture.
